@@ -88,7 +88,7 @@ with col2:
     st.download_button(
         label="📄 Télécharger mon CV",
         data=pdf_bytes,
-        file_name="CV_Elodie.pdf",
+        file_name="CV_Elodie_DAI.pdf",
         mime="application/pdf",
         key="cv_download",
         help="Cliquez pour télécharger mon CV"
