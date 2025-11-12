@@ -2,6 +2,7 @@ import streamlit as st
 
 st.set_page_config(page_title="Mon Portfolio", layout="wide")
 
+# CSS pour le lien
 st.markdown("""
 <style>
 .contact-link {
@@ -18,16 +19,21 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-st.markdown(
-    '<a class="contact-link" href="https://nunyuki-portfolio-dev.streamlit.app/pages/00_Contact">📞 Me contacter</a>',
-    unsafe_allow_html=True
-)
+# Conteneur pour le header avec le lien à gauche
+header = st.container()
+with header:
+    col1, col2 = st.columns([1, 5])  # 1/6 pour le lien, 5/6 pour le reste
+    with col1:
+        st.markdown(
+            '<a class="contact-link" href="https://nunyuki-portfolio-dev.streamlit.app/pages/00_Contact">📞 Me contacter</a>',
+            unsafe_allow_html=True
+        )
+    with col2:
+        st.title("Bonjour, je suis Elodie DAI")
+        st.subheader("Diplômée de la formation Master MIAGE à l'Université Paris Dauphine - PSL")
 
-st.title("Bonjour, je suis Elodie DAI")
-st.subheader("Diplômée de la formation Master MIAGE à l'Université Paris Dauphine - PSL")
-
+# Boutons projets / CV
 col1, col2 = st.columns(2)
-
 with col1:
     if st.button("Voir mes projets"):
         st.write("➡️ Ici tu peux ajouter un lien ou faire défiler vers tes projets.")
