@@ -1,66 +1,15 @@
 import streamlit as st
+from utils.style import load_css, img_to_base64
 
 st.set_page_config(page_title="Mon Portfolio", layout="wide")
 
-st.markdown("""
-<style>
-[data-testid="stAppViewContainer"] {
-    background: linear-gradient(to bottom, #000000 60%, #4B0000 100%);
-    color: #f5f5f5;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-h1, h2 {
-    text-align: center;
-}
-
-h3, h4, h5, h6, p, a, button {
-    color: #f5f5f5;
-    text-align: left;
-}
-
-.contact-link {
-    font-weight: bold;
-    color: #f5f5f5;
-    background-color: #330011;
-    padding: 10px 20px;
-    border-radius: 8px;
-    text-decoration: none;
-}
-
-.contact-link:hover {
-    background-color: #4d001a;
-}
-
-.cv-button {
-    font-weight: bold;
-    color: #f5f5f5 !important;
-    background-color: #550000 !important;
-    padding: 10px 20px;
-    border-radius: 8px;
-    text-decoration: none !important;
-}
-
-.cv-button:hover {
-    background-color: #770000 !important;
-    text-decoration: none !important; 
-    color: #f5f5f5 !important;
-}
-
-.info-box, .contact-box {
-    background-color: rgba(255, 255, 255, 0.05);
-    padding: 20px 25px;
-    border-radius: 10px;
-    font-size: 18px;
-    margin-bottom: 30px;
-}
-</style>
-""", unsafe_allow_html=True)
+load_css()
+suie_b64 = img_to_base64("assets/suie.png")
 
 st.title("🚀 Coucou, je suis Elodie DAI !")
 st.subheader("Développement le jour, créativité toujours. J’aime construire mes projets avec la même attention que je mets dans mes créations personnelles.\n")
 
-col1, col2 = st.columns([3, 1]) 
+col1, col2 = st.columns([5, 2]) 
 
 with col1:
     st.markdown("""
@@ -94,3 +43,10 @@ with col2:
         key="cv_download",
         help="Cliquez pour télécharger mon CV"
     )
+
+st.markdown(f"""
+<div style="display:flex; align-items:center; justify-content:center; gap:20px; margin-top:2px;">
+    <img src="data:image/png;base64,{suie_b64}" width="100"/>
+    <p style="margin:0; font-size:18px;">🐾 Les petites boules de suie sont là pour vous guider dans mon univers créatif 🐾</p>
+</div>
+""", unsafe_allow_html=True)
