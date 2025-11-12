@@ -1,5 +1,7 @@
 import streamlit as st
 
-st.set_page_config(page_title="Mon Portfolio", layout="wide")
+st.title("Bonjour, je suis Elodie DAI")
+st.subheader("Diplômée de la formation Master MIAGE à l'Université Paris Dauphine - PSL")
 
-st.markdown("[📞 Me contacter](pages/00_Contact)")
+st.button("Voir mes projets")
+st.button("Télécharger mon CV")
