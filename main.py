@@ -1,32 +1,41 @@
 import streamlit as st
 
-st.title("Bonjour, je suis Elodie DAI")
-st.subheader("Diplômée de la formation Master MIAGE à l'Université Paris Dauphine - PSL")
+st.set_page_config(page_title="Mon Portfolio", layout="wide")
 
-st.button("Voir mes projets")
-st.button("Télécharger mon CV")
+# CSS pour le lien
+st.markdown("""
+<style>
+.contact-link {
+    font-weight: bold;
+    color: white;
+    background-color: #4CAF50;  /* vert joyeux */
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+}
+.contact-link:hover {
+    background-color: #45a049;
+}
+</style>
+""", unsafe_allow_html=True)
 
-page = st.selectbox("Naviguer vers :", ["Accueil", "Projets", "Contact"])
+# --- Header avec lien Me contacter ---
+col1, col2 = st.columns([1, 5])  # 1/6 pour le lien, 5/6 pour le titre
+with col1:
+    st.markdown(
+        '<a class="contact-link" href="https://nunyuki-portfolio-dev.streamlit.app/pages/00_Contact" target="_blank">📞 Me contacter</a>',
+        unsafe_allow_html=True
+    )
+with col2:
+    st.title("Bonjour, je suis Elodie DAI")
+    st.subheader("Diplômée de la formation Master MIAGE à l'Université Paris Dauphine - PSL")
 
-if page == "Accueil":
-    st.header("Accueil")
-    st.write("Voici un petit aperçu de moi et de mes compétences.")
-    st.write("- Développement Python, Web et Data")  
-    st.write("- Projets personnels et professionnels")  
+# --- Boutons ---
+col3, col4 = st.columns(2)
+with col3:
+    if st.button("Voir mes projets"):
+        st.write("➡️ Ici tu peux ajouter un lien ou faire défiler vers tes projets.")
 
-elif page == "Projets":
-    st.header("Mes Projets")
-    st.write("Voici quelques-uns de mes projets réalisés :")
-    st.write("1. Projet A")
-    st.write("2. Projet B")
-    st.write("3. Projet C")
-
-elif page == "Contact":
-    st.header("Contact")
-    st.write("📬 Vous êtes ici pour me contacter ?")
-    st.write("[Cliquez ici pour aller à la page Contact](./pages/00_Contact.py)")
-
-# Bouton direct vers la page Contact
-if st.button("📞 Me contacter"):
-    st.write("Cliquez ici pour accéder à la page Contact :")
-    st.markdown("[Aller à la page Contact](./pages/00_Contact.py)")
+with col4:
+    if st.button("Télécharger mon CV cc" ):
+        st.write("➡️ Ici tu peux mettre un lien pour télécharger ton CV PDF.")
