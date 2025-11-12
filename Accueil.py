@@ -52,6 +52,7 @@ h3, h4, h5, h6, p, a, button {
     padding: 20px 25px;
     border-radius: 10px;
     font-size: 18px;
+    margin-bottom: 30px;
 }
 </style>
 """, unsafe_allow_html=True)
@@ -65,9 +66,9 @@ with col1:
     st.markdown("""
     <div class="info-box">
     <h3>🎓 Formation</h3>
-    <p>Master MIAGE, Université Paris Dauphine - PSL</p>
+    <p>Diplômée d’un Master MIAGE à l’Université Paris Dauphine – PSL</p>
     <h3>💼 Expérience</h3>
-    <p>3 ans d’alternance à SwissLife Banque Privée</p>
+    <p>Trois années d’alternance enrichissantes au sein de SwissLife Banque Privée</p>
     <h3>🔍 Objectif</h3>
     <p>Ouverte à un CDI stimulant au sein d’une équipe collaborative et dynamique</p>
     </div>
