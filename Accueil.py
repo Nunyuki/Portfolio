@@ -59,7 +59,7 @@ h3, h4, h5, h6, p, a, button {
 st.title("🚀 Coucou, je suis Elodie DAI !")
 st.subheader("Développement le jour, créativité toujours. J’aime construire mes projets avec la même attention que je mets dans mes créations personnelles.\n")
 
-col1, col2 = st.columns([3, 1])  # 3/4 gauche, 1/4 droite
+col1, col2 = st.columns([3, 1]) 
 
 with col1:
     st.markdown("""
