@@ -1,5 +1,5 @@
 import streamlit as st
-from utils.style import load_css, img_to_base64, formation_block
+from utils.style import load_css, img_to_base64, formation_block_info
 
 st.set_page_config(page_title="Mes Formations", layout="wide")
 load_css()
@@ -14,7 +14,7 @@ Chaque étape de mon parcours a renforcé mes compétences techniques, ma rigueu
 </p>
 """, unsafe_allow_html=True)
 
-formation_block(
+formation_block_info(
     "🏛 Université Paris Dauphine – PSL",
     "Licence 3 à Master 2 MIAGE (Méthodes Informatiques Appliquées à la Gestion des Entreprises)",
     "2022 – 2025 | Alternance chez SwissLife Banque Privée",
@@ -33,7 +33,7 @@ formation_block(
         """
 )
 
-formation_block(
+formation_block_info(
     "🎓 Sorbonne Université",
     "Licence 1 & 2 – MIPI puis Bi-disciplinaire Informatique - Gestion",
     "2020 – 2022",
@@ -50,7 +50,7 @@ formation_block(
 )
 
 # 🏫 Lycée Henri Wallon
-formation_block(
+formation_block_info(
     "🏫 Lycée Henri Wallon – Aubervilliers",
     "Baccalauréat Scientifique | Spécialité Mathématiques | Mention Très Bien",
     "2017 – 2020",

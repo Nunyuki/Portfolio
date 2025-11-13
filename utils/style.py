@@ -74,7 +74,7 @@ def create_skill(title, skills):
     </div>
     """
     
-def formation_block(title, subtitle, years, details):
+def formation_block_info(title, subtitle, years, details):
     with st.container():
         st.markdown(f"""
         <div class="info-box" style="margin-bottom:10px;">
