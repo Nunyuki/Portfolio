@@ -73,3 +73,15 @@ def create_skill(title, skills):
         <div style="display:flex; flex-wrap:wrap; gap:10px;">{badges_html}</div>
     </div>
     """
+    
+def formation_block(title, subtitle, years, details):
+    with st.container():
+        st.markdown(f"""
+        <div class="info-box" style="margin-bottom:10px;">
+            <h4>{title}</h4>
+            <p style="margin:0; font-size:15px;"><b>{subtitle}</b> | <i>{years}</i></p>
+        </div>
+        """, unsafe_allow_html=True)
+
+        with st.expander("🧾 En savoir plus"):
+            st.markdown(details, unsafe_allow_html=True)

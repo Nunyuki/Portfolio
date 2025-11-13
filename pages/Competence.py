@@ -1,7 +1,7 @@
 import streamlit as st
 from utils.style import load_css, img_to_base64, create_skill
 
-st.set_page_config(page_title="Compétences - Elodie DAI", layout="wide")
+st.set_page_config(page_title="Mes Compétences", layout="wide")
 load_css()
 
 calcifer_b64   = img_to_base64("assets/calcifer.png")
@@ -11,13 +11,13 @@ st.title("🛠 Mes Compétences")
 col1, col2 = st.columns(2)
 
 blocks = [
-    ("💻 Développement & Langages", ["Python", "Java", "JavaFX", "C", "OCaml", "TypeScript", "JavaScript", "XML"]),
-    ("📊 Base de données & ETL", ["MySQL", "PostgreSQL", "Microsoft SQL Server", "Tableau", "Talend", "Datastage Server IBM", "SSRS", "PL/SQL, Trigger"]),
-    ("🛠 Frameworks & Outils", ["Angular", "Spring Boot", "Figma", "Unity", "Google Cloud Platform", "Swagger", "Docker", "Microservice"]),
+    ("💻 Développement & Langages", ["Python", "Java", "JavaFX", "C", "OCaml", "XML"]),
+    ("📊 Base de données & ETL", ["MySQL", "PostgreSQL", "Microsoft SQL Server", "Talend", "Datastage Server IBM", "SSRS", "PL/SQL", "Trigger"]),
+    ("🛠 Frameworks & Outils", ["Angular", "Spring Boot", "Figma", "Unity", "Google Cloud Platform", "Swagger", "Microservice", "Streamlit"]),
     ("🛠 IDE & Outils", ["IntelliJ IDEA", "VSCode", "PyCHARM", "Eclipse", "GitHub", "VS2022"]),
-    ("🗂 Structure de données & Algorithmes", ["Liste doublement chaînée", "Table de Hashage", "Arbre", "Graphe", "Schéma E/A", "Modèle relationnel", "Calcul relationnel", "Algèbre relationnelle SQL"]),
+    ("🗂 Structure de données & Algorithmes", ["Liste doublement chaînée", "Table de Hashage", "Arbre", "Graphe", "Schéma E/A", "Modèle relationnel", "Calcul relationnel", "Algèbre relationnelle","SQL"]),
     ("💻 Systèmes d'exploitation", ["Windows", "Ubuntu"]),
-    ("💡 Soft Skills", ["Communication", "Travail en équipe", "Adaptabilité", "Résolution de problèmes", "Créativité", "Gestion du temps"])
+    ("💡 Soft Skills", ["Assidue", "Travail en équipe", "Adaptabilité", "Créativité", "Gestion du temps"])
 ]
 
 for i, (title, skills) in enumerate(blocks):
