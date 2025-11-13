@@ -85,3 +85,21 @@ def formation_block_info(title, subtitle, years, details):
 
         with st.expander("🧾 En savoir plus"):
             st.markdown(details, unsafe_allow_html=True)
+            
+def experience_block_info(title, company, place, period, tools, summary, details):
+    tools_html = "".join([f'<div class="skill-badge-inline">{tool}</div>' for tool in tools])
+    
+    with st.container():
+        st.markdown(f"""
+        <div class="info-box" style="margin-bottom:10px;">
+            <h4>{title} | {company} | {place} </h4>
+            <p style="margin:0; font-size:15px;"><i>{period}</i></p>
+            <p style="margin-top:8px;">{summary}</p>
+            <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:5px;">
+                {tools_html}
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
+        
+        with st.expander("🧾 En savoir plus"):
+            st.markdown(details, unsafe_allow_html=True)

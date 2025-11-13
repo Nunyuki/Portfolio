@@ -1,7 +1,7 @@
 import streamlit as st
 from utils.style import load_css, img_to_base64
 
-st.set_page_config(page_title="À propos de moi - Elodie DAI", layout="wide")
+st.set_page_config(page_title="À propos de moi", layout="wide")
 load_css()
 
 haku_b64 = img_to_base64("assets/haku.png")
@@ -69,7 +69,6 @@ with col3:
     </div>
     """, unsafe_allow_html=True)
 
-# --- Liens vers mes créations ---
 st.markdown(f"""
 <div class="info-box" style="text-align:center;">
     <h4>📸 Mes créations</h4>
@@ -83,9 +82,6 @@ st.markdown(f"""
 </div>
 """, unsafe_allow_html=True)
 
-
-
-# --- Illustration ---
 st.markdown(f"""
 <div style="display:flex; justify-content:center; align-items:center; gap:15px; margin-top:20px;">
     <img src="data:image/png;base64,{haku_b64}" width="100"/>
