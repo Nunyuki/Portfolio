@@ -11,12 +11,12 @@ totoro_b64   = img_to_base64("assets/totoro.png")
 st.title("📞 Contactez-moi")
 
 st.markdown(f"""
-<div class="contact-box" style="margin-left:auto; margin-right:auto; width:65%;">
-    <h3>🚀 Envie de collaborer ?</h3>
+<div class="info-box" style="margin:auto; width:65%;">
+    <h4>🚀 Envie de collaborer ?</h4>
     <p>Je serais ravie d’échanger avec vous autour d’un projet, d’une opportunité ou d’une belle idée ✨</p>
-    <h3>✉️ Email</h3>
+    <h4>✉️ Email</h4>
     <p>daichenelodie@gmail.com</p>
-    <h3>🌐 Réseaux</h3>
+    <h4>🌐 Réseaux</h4>
     <div style="display:flex; align-items:center; gap:15px; margin-top:5px;">
         <div style="display:flex; align-items:center; gap:5px;">
             <img src="data:image/png;base64,{linkedin_b64}" width="30"/>
@@ -31,8 +31,8 @@ st.markdown(f"""
 """, unsafe_allow_html=True)
 
 st.markdown(f"""
-<div style="display:flex; align-items:center; justify-content:center; gap:20px; margin-top:2px;">
+<div style="display:flex; align-items:center; justify-content:center; gap:20px; margin-top:10px;">
     <img src="data:image/png;base64,{totoro_b64}" width="100"/>
-    <p style="margin:0; font-size:18px;">✨ Totoro est là pour accueillir vos messages ✨</p>
+    <p style="margin:0; font-size:16px;">✨ Totoro est là pour accueillir vos messages ✨</p>
 </div>
 """, unsafe_allow_html=True)
