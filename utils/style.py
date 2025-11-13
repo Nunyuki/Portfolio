@@ -7,7 +7,6 @@ def load_css():
     [data-testid="stAppViewContainer"] {
         background: linear-gradient(to bottom, #000000 60%, #4B0000 100%);
         color: #f5f5f5;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
 
     h1, h2 { text-align: center; }

@@ -27,7 +27,7 @@ for exp in experiences:
 # Illustration / mascotte
 st.markdown(f"""
 <div style="display:flex; align-items:center; justify-content:center; gap:20px; margin-top:20px;">
-    <img src="data:image/png;base64,{noface_b64}" width="100"/>
+    <img src="data:image/png;base64,{noface_b64}" width="200"/>
     <p style="margin:0; font-size:16px;">👻 NoFace gagne de l'expérience avec moi à chaque endroit ! 👻</p>
 </div>
 """, unsafe_allow_html=True)
