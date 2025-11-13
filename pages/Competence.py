@@ -1,5 +1,5 @@
 import streamlit as st
-from utils.style import load_css, img_to_base64, create_skill_block
+from utils.style import load_css, img_to_base64, create_skill
 
 st.set_page_config(page_title="Compétences - Elodie DAI", layout="wide")
 load_css()
@@ -23,10 +23,10 @@ blocks = [
 for i, (title, skills) in enumerate(blocks):
     if i % 2 == 0:
         with col1:
-            st.markdown(create_skill_block(title, skills), unsafe_allow_html=True)
+            st.markdown(create_skill(title, skills), unsafe_allow_html=True)
     else:
         with col2:
-            st.markdown(create_skill_block(title, skills), unsafe_allow_html=True)
+            st.markdown(create_skill(title, skills), unsafe_allow_html=True)
 
 with col2:
     st.markdown("""

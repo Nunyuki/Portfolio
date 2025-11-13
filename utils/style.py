@@ -65,7 +65,7 @@ def img_to_base64(path):
     with open(path, "rb") as f:
         return base64.b64encode(f.read()).decode()
 
-def create_skill_block(title, skills):
+def create_skill(title, skills):
     badges_html = "".join([f'<div class="skill-badge-inline">{skill}</div>' for skill in skills])
     return f"""
     <div class="info-box" style="width:100%; margin-bottom:15px;">
