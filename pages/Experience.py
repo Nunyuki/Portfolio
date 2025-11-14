@@ -1,5 +1,5 @@
 import streamlit as st
-from utils.style import load_css, img_to_base64, experience_block_info
+from utils.style import load_css, img_to_base64, exp_block_info
 from utils.experiences import experiences 
 
 st.set_page_config(page_title="Mes Expériences", layout="wide")
@@ -10,7 +10,7 @@ noface_b64 = img_to_base64("assets/ghibli/noface.png")
 st.title("💼 Mes Expériences Professionnelles")
 
 for exp in experiences:
-    experience_block_info(
+    exp_block_info(
         title=exp["title"],
         company=exp["company"],
         place=exp["place"],

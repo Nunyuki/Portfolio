@@ -85,7 +85,7 @@ def formation_block_info(title, subtitle, years, details):
         with st.expander("🧾 En savoir plus"):
             st.markdown(details, unsafe_allow_html=True)
             
-def experience_block_info(title, company, place, period, tools, summary, details, logo_path=None):
+def exp_block_info(title, company, place, period, tools, summary, details, logo_path=None):
     logo_b64 = img_to_base64(logo_path) if logo_path else None
     
     tools_html = "".join([f'<div class="skill-badge-inline">{tool}</div>' for tool in tools])
