@@ -4,7 +4,7 @@ from utils.style import load_css, img_to_base64, create_skill
 st.set_page_config(page_title="Mes Compétences", layout="wide")
 load_css()
 
-calcifer_b64   = img_to_base64("assets/calcifer.png")
+calcifer_b64   = img_to_base64("assets/ghibli/calcifer.png")
 
 st.title("🛠 Mes Compétences")
 

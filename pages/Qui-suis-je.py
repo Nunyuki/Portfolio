@@ -4,8 +4,8 @@ from utils.style import load_css, img_to_base64
 st.set_page_config(page_title="À propos de moi", layout="wide")
 load_css()
 
-haku_b64 = img_to_base64("assets/haku.png")
-instagram_b64 = img_to_base64("assets/instagram.png")
+haku_b64 = img_to_base64("assets/ghibli/haku.png")
+instagram_b64 = img_to_base64("assets/logo/instagram.png")
 
 st.title("✨ À propos de moi")
 st.markdown("""

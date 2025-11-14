@@ -20,7 +20,8 @@ experiences = [
 
 #### Communication & Collaboration
 > Échange pour comprendre les besoins.
-"""
+""",
+        "logo": "assets/logo/slbp.png"  
     },
     {
         "title": "Autres expériences",
@@ -40,6 +41,7 @@ experiences = [
 > Préparation des commandes\n
 > Entretien sanitaire\n
 > Réassort de produit
-"""
+""",
+        "logo": "assets/logo/defaut.png" 
     }  
 ]

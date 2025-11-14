@@ -4,7 +4,7 @@ from utils.style import load_css, img_to_base64, formation_block_info
 st.set_page_config(page_title="Mes Formations", layout="wide")
 load_css()
 
-ponyo_b64 = img_to_base64("assets/ponyo.png")
+ponyo_b64 = img_to_base64("assets/ghibli/ponyo.png")
 
 st.title("🎓 Mon Parcours de Formation")
 

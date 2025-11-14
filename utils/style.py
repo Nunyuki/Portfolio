@@ -85,17 +85,22 @@ def formation_block_info(title, subtitle, years, details):
         with st.expander("🧾 En savoir plus"):
             st.markdown(details, unsafe_allow_html=True)
             
-def experience_block_info(title, company, place, period, tools, summary, details):
+def experience_block_info(title, company, place, period, tools, summary, details, logo_path=None):
+    logo_b64 = img_to_base64(logo_path) if logo_path else None
+    
     tools_html = "".join([f'<div class="skill-badge-inline">{tool}</div>' for tool in tools])
     
     with st.container():
         st.markdown(f"""
-        <div class="info-box" style="margin-bottom:10px;">
-            <h4>{title} | {company} | {place} </h4>
-            <p style="margin:0; font-size:15px;"><i>{period}</i></p>
-            <p style="margin-top:8px;">{summary}</p>
-            <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:5px;">
-                {tools_html}
+        <div class="info-box" style="margin-bottom:10px; display:flex; align-items:center; gap:15px;">
+            {'<img src="data:image/png;base64,' + logo_b64 + '" width="100" style="border-radius:8px;">' if logo_b64 else ''}
+            <div>
+                <h4>{title} | {company} | {place}</h4>
+                <p style="margin:0; font-size:15px;"><i>{period}</i></p>
+                <p style="margin-top:8px;">{summary}</p>
+                <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:5px;">
+                    {tools_html}
+                </div>
             </div>
         </div>
         """, unsafe_allow_html=True)

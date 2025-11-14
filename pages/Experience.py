@@ -5,14 +5,10 @@ from utils.experiences import experiences
 st.set_page_config(page_title="Mes Expériences", layout="wide")
 load_css()
 
-# Image pour la page
-noface_b64 = img_to_base64("assets/noface.png")
+noface_b64 = img_to_base64("assets/ghibli/noface.png")
 
 st.title("💼 Mes Expériences Professionnelles")
 
-
-
-# Générer automatiquement tous les blocs depuis le JSON importé
 for exp in experiences:
     experience_block_info(
         title=exp["title"],
@@ -21,10 +17,10 @@ for exp in experiences:
         period=exp["period"],
         tools=exp["tools"],
         summary=exp["summary"],
-        details=exp["details"]
+        details=exp["details"],
+        logo_path=exp.get("logo")  
     )
 
-# Illustration / mascotte
 st.markdown(f"""
 <div style="display:flex; align-items:center; justify-content:center; gap:20px; margin-top:20px;">
     <img src="data:image/png;base64,{noface_b64}" width="200"/>

@@ -4,7 +4,7 @@ from utils.style import load_css, img_to_base64
 st.set_page_config(page_title="Mon Portfolio", layout="wide")
 load_css()
 
-suie_b64 = img_to_base64("assets/suie.png")
+suie_b64 = img_to_base64("assets/ghibli/suie.png")
 
 st.title("🚀 Coucou, je suis Elodie DAI !")
 st.subheader("Développement le jour, créativité toujours. J’aime construire mes projets avec la même attention que je mets dans mes créations personnelles.")
