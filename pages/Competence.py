@@ -14,7 +14,7 @@ blocks = [
     ("💻 Développement & Langages", ["Python", "Java", "JavaFX", "C", "OCaml", "XML"]),
     ("📊 Base de données & ETL", ["MySQL", "PostgreSQL", "Microsoft SQL Server", "Talend", "Datastage Server IBM", "SSRS", "PL/SQL", "Trigger"]),
     ("🛠 Frameworks & Outils", ["Angular", "Spring Boot", "Figma", "Unity", "Google Cloud Platform", "Swagger", "Microservice", "Streamlit"]),
-    ("🛠 IDE & Outils", ["IntelliJ IDEA", "VSCode", "PyCHARM", "Eclipse", "GitHub", "VS2022"]),
+    ("🛠 IDE & Outils", ["IntelliJ IDEA", "VSCode", "PyCHARM", "Eclipse", "GitHub", "VS2022", "BlueJ"]),
     ("🗂 Structure de données & Algorithmes", ["Liste doublement chaînée", "Table de Hashage", "Arbre", "Graphe", "Schéma E/A", "Modèle relationnel", "Calcul relationnel", "Algèbre relationnelle","SQL"]),
     ("💻 Systèmes d'exploitation", ["Windows", "Ubuntu"]),
     ("💡 Soft Skills", ["Assidue", "Travail en équipe", "Adaptabilité", "Créativité", "Gestion du temps"])
