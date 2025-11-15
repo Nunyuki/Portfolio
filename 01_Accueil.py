@@ -1,12 +1,9 @@
 import streamlit as st
+from utils.setup import setup_page
 from utils.style import load_css, img_to_base64
+from utils.images import SUIE
 
-st.set_page_config(page_title="Mon Portfolio", layout="wide")
-load_css()
-
-suie_b64 = img_to_base64("assets/ghibli/suie.png")
-
-st.title("🚀 Coucou, je suis Elodie DAI !")
+setup_page("🚀 Coucou, je suis Elodie DAI !")
 st.subheader("Développement le jour, créativité toujours. J’aime construire mes projets avec la même attention que je mets dans mes créations personnelles.")
 
 col1, col2 = st.columns([5, 2])
@@ -44,9 +41,5 @@ with col2:
         key="cv_download"
     )
 
-st.markdown(f"""
-<div style="display:flex; align-items:center; justify-content:center; gap:20px; margin-top:10px;">
-    <img src="data:image/png;base64,{suie_b64}" width="100"/>
-    <p style="margin:0; font-size:16px;">🐾 Les petites boules de suie sont là pour vous guider dans mon univers créatif 🐾</p>
-</div>
-""", unsafe_allow_html=True)
+from utils.ui import mascot_row
+mascot_row(SUIE, "🐾 Les petites boules de suie sont là pour vous guider dans mon univers créatif 🐾", size=100)

@@ -1,10 +1,9 @@
-from utils.setup import setup_page, st
-from utils.style import img_to_base64, create_skill
+import streamlit as st
+from utils.setup import setup_page
+from utils.style import create_skill
+from utils.images import CALCIFER
 
 setup_page("🛠 Mes Compétences")
-
-calcifer_b64   = img_to_base64("assets/ghibli/calcifer.png")
-col1, col2 = st.columns(2)
 
 blocks = [
     ("💻 Développement & Langages", ["Python", "Java", "JavaFX", "C", "OCaml", "XML"]),
@@ -16,13 +15,11 @@ blocks = [
     ("💡 Soft Skills", ["Assidue", "Travail en équipe", "Adaptabilité", "Créativité", "Gestion du temps"])
 ]
 
+col1, col2 = st.columns(2)
 for i, (title, skills) in enumerate(blocks):
-    if i % 2 == 0:
-        with col1:
-            st.markdown(create_skill(title, skills), unsafe_allow_html=True)
-    else:
-        with col2:
-            st.markdown(create_skill(title, skills), unsafe_allow_html=True)
+    target = col1 if i % 2 == 0 else col2
+    with target:
+        st.markdown(create_skill(title, skills), unsafe_allow_html=True)
 
 with col2:
     st.markdown("""
@@ -43,9 +40,5 @@ with col2:
     </div>
     """, unsafe_allow_html=True)
 
-st.markdown(f"""
-<div style="display:flex; align-items:center; justify-content:center; gap:20px; margin-top:10px;">
-    <img src="data:image/png;base64,{calcifer_b64}" width="100"/>
-    <p style="margin:0; font-size:16px;">💡 Calcifer présente les compétences qui font briller mes projets 💡</p>
-</div>
-""", unsafe_allow_html=True)
+from utils.ui import mascot_row
+mascot_row(CALCIFER, "💡 Calcifer présente les compétences qui font briller mes projets 💡", size=100)

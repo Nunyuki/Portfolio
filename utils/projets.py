@@ -1,7 +1,9 @@
 import streamlit as st
 
+@st.cache_data
 def get_projets():
-  return [
+    # retourne la même structure qu'avant, mais mise en cache
+    return [
         {
             "title": "Event Management",
             "description": "JUIN 2024 | Site de gestion d'événements et d'activités | Création, modification, suprression, inscription à des évènements avec une fonctionnalité de recherche multiple",
@@ -10,8 +12,16 @@ def get_projets():
                 {"name": "Code Front", "url": "https://github.com/Nunyuki/Event-Management-Frontend"},
                 {"name": "Code Back", "url": "https://github.com/Nunyuki/Event-Management-Backend"}
             ],
-            "images": ["assets/projets/event/accueil.png", "assets/projets/event/connexion.png", "assets/projets/event/principal.png", "assets/projets/event/profil.png",
-                      "assets/projets/event/categorie.png", "assets/projets/event/evenement.png", "assets/projets/event/créer.png","assets/projets/event/page.png"],
+            "images": [
+                "assets/projets/event/accueil.png",
+                "assets/projets/event/connexion.png",
+                "assets/projets/event/principal.png",
+                "assets/projets/event/profil.png",
+                "assets/projets/event/categorie.png",
+                "assets/projets/event/evenement.png",
+                "assets/projets/event/créer.png",
+                "assets/projets/event/page.png"
+            ],
             "details_text": [
                 "Page principale de présentation du site",
                 "Page de connexion suite à la création d'un compte",
@@ -29,60 +39,66 @@ def get_projets():
             "tools": ["En groupe - Ecole", "Java", "SpringBoot"],
             "links": [
                 {"name": "Code", "url": "https://github.com/Nunyuki/dauphairline"},
-                {"name": "Présentation", "url": "https://www.canva.com/design/DAGsFzIf8P8/zFUTdDiN4bXP3bb1lEXk-g/edit?utm_content=DAGsFzIf8P8&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"},
+                {"name": "Présentation", "url": "https://www.canva.com/design/DAGsFzIf8P8/zFUTdDiN4bXP3bb1lEXk-g/edit?utm_content=DAGsFzIf8P8&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"}
             ],
             "images": ["assets/projets/dauphairline/graph.png"],
-            "details_text": [
-                "Graphes des différentes communications entre les différents microservices",
-            ]
+            "details_text": ["Graphes des différentes communications entre les différents microservices"]
         },
         {
             "title": "Morpion Solitaire",
-            "description": "DECEMBRE 2023 | Création d'une version thème espace du jeu du morpion solitaire, contenant un leaderbord local et basé sur les mêmes règles de jeu que l'original",
+            "description": "DECEMBRE 2023 | Version thème espace du jeu du morpion solitaire",
             "tools": ["En groupe - Ecole", "Java", "Java FX"],
             "links": [
                 {"name": "Code", "url": "https://github.com/Nunyuki/Morpion-solitaire"},
-                {"name": "Fonctionnalités", "url": "https://www.canva.com/design/DAF2_TthRms/UFpl92dzLAZ4tl1ZgjyZAQ/edit?utm_content=DAF2_TthRms&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"},
+                {"name": "Fonctionnalités", "url": "https://www.canva.com/design/DAF2_TthRms/UFpl92dzLAZ4tl1ZgjyZAQ/edit?utm_content=DAF2_TthRms&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"}
             ],
-            "images": ["assets/projets/morpion/Accueil.png", "assets/projets/morpion/Regle.png", "assets/projets/morpion/Interface.png",
-                      "assets/projets/morpion/Fin.png"],
+            "images": [
+                "assets/projets/morpion/Accueil.png",
+                "assets/projets/morpion/Regle.png",
+                "assets/projets/morpion/Interface.png",
+                "assets/projets/morpion/Fin.png"
+            ],
             "details_text": [
                 "Page d'accueil lors du lancement de l'application",
                 "Ouverture d'une fenêtre de règles de jeu comportant 4 pages",
                 "Interface de jeu avec les différentes fonctionnalités et le leaderbord",
-                "Pop up annonçant la fin de la partie et d'un nom à enregistrer s'il existe"
+                "Pop up annonçant la fin de la partie"
             ]
         },
-            {
+        {
             "title": "6 Wonders",
-            "description": "JUIN 2023 | Création d'une version simplifiée du jeu seven wonders, contenant les actions principaux",
+            "description": "JUIN 2023 | Version simplifiée du jeu seven wonders",
             "tools": ["En groupe - Ecole", "Java", "Java FX"],
             "links": [
                 {"name": "Code", "url": "https://github.com/Nunyuki/6-Wonder"},
-                {"name": "Règles", "url": "https://docs.google.com/document/d/1SqFddTFp1qvCMUE-B3DtEL7lNgNo_Z8DWCVqC56ccHs/edit?usp=sharing"},
+                {"name": "Règles", "url": "https://docs.google.com/document/d/1SqFddTFp1qvCMUE-B3DtEL7lNgNo_Z8DWCVqC56ccHs/edit?usp=sharing"}
             ],
-            "images": ["assets/projets/6wonders/accueil.png", "assets/projets/6wonders/nb_joueurs.png", "assets/projets/6wonders/NomJoueur.png",
-                      "assets/projets/6wonders/ingame.png", "assets/projets/6wonders/bataille.png", "assets/projets/6wonders/Fin.png"],
+            "images": [
+                "assets/projets/6wonders/accueil.png",
+                "assets/projets/6wonders/nb_joueurs.png",
+                "assets/projets/6wonders/NomJoueur.png",
+                "assets/projets/6wonders/ingame.png",
+                "assets/projets/6wonders/bataille.png",
+                "assets/projets/6wonders/Fin.png"
+            ],
             "details_text": [
                 "Page principale lors du lancement de l'application",
                 "Page initialisant le nombre de joueurs",
-                "Page enregistrant les noms des joueurs, qui doivent tous être diffénrents",
-                "Interface de jeux qui varie selon le joueurs : cartes, ressources, noms, merveille",
-                "Pop up résumant le résultat des batailles à la fin de chaque Age",
+                "Page enregistrant les noms des joueurs",
+                "Interface de jeux qui varie selon le joueur",
+                "Pop up résumant le résultat des batailles",
                 "Classement des joueurs avec tableau des scores"
             ]
         },
         {
             "title": "Sac à dos",
-            "description": "JUIN 2024 | Algorithme génétique au problème du sac à dos avec contraintes multiples, visant à maximiser l’utilité totale des objets tout en respectant les coûts.",
+            "description": "JUIN 2024 | Algorithme génétique au problème du sac à dos",
             "tools": ["Seule - Ecole", "Java"],
             "links": [
                 {"name": "Code", "url": "https://github.com/Nunyuki/Sac_a_dos"},
-                {"name": "Rapport", "url": "https://www.canva.com/design/DAF1wOeRw6Q/FVZJLdM9poP6eNfAmrV0yA/edit?utm_content=DAF1wOeRw6Q&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"},
+                {"name": "Rapport", "url": "https://www.canva.com/design/DAF1wOeRw6Q/FVZJLdM9poP6eNfAmrV0yA/edit?utm_content=DAF1wOeRw6Q&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"}
             ],
             "images": ["assets/projets/sac_a_dos/terminal.png"],
-            "details_text": [
-                "Affichage d'une simulation possible d'un algorithme génétique",
-            ]
+            "details_text": ["Affichage d'une simulation possible d'un algorithme génétique"]
         }
     ]

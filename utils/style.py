@@ -2,164 +2,75 @@ import streamlit as st
 import base64
 
 def load_css():
-    st.markdown("""
-    <style>
+  st.markdown("""
+  <style>
     [data-testid="stAppViewContainer"] {
-        background: linear-gradient(to bottom, #000000 60%, #4B0000 100%);
-        color: #f5f5f5;
+      background: linear-gradient(to bottom, #000000 60%, #4B0000 100%);
+      color: #f5f5f5;
     }
-
+    
     h1, h2 { text-align: center; }
     h3, h4, h5, h6, p, a, button { color: #f5f5f5; text-align: left; }
 
-    /* Conteneur général */
     .info-box {
-        background-color: rgba(255, 255, 255, 0.07);
-        padding: 15px 30px;
-        border-radius: 20px;
-        font-size: 16px;
-        margin-bottom: 15px;
+      background-color: rgba(255, 255, 255, 0.07);
+      padding: 15px 30px;
+      border-radius: 20px;
+      font-size: 16px;
+      margin-bottom: 15px;
     }
 
-    /* Badges standard */
+
     .skill-badge, .skill-badge-inline {
-        display:inline-block;
-        background-color: #550000;
-        padding: 5px 10px;
-        border-radius: 5px;
-        color: #f5f5f5;
-        font-size: 14px;
-        transition: transform 0.2s, background-color 0.2s;
-        cursor: default;
+      display:inline-block;
+      background-color: #550000;
+      padding: 5px 10px;
+      border-radius: 5px;
+      color: #f5f5f5;
+      font-size: 14px;
+      transition: transform 0.2s, background-color 0.2s;
+      cursor: default;
     }
+
 
     .skill-badge:hover, .skill-badge-inline:hover {
-        background-color: #770000;
-        transform: scale(1.05);
+      background-color: #770000;
+      transform: scale(1.05);
     }
 
-    /* Langues - barres */
+
     .lang-bar-bg {
-        background-color: rgba(255,255,255,0.1);
-        border-radius: 5px;
-        height: 20px;
-        width: 100%;
-        margin-bottom: 10px;
+      background-color: rgba(255,255,255,0.1);
+      border-radius: 5px;
+      height: 20px;
+      width: 100%;
+      margin-bottom: 10px;
     }
+
 
     .lang-bar-fill {
-        background-color: #550000;
-        height: 100%;
-        border-radius: 5px;
-        text-align:center;
-        line-height:20px;
-        color:#f5f5f5;
-        font-weight:bold;
+      background-color: #550000;
+      height: 100%;
+      border-radius: 5px;
+      text-align:center;
+      line-height:20px;
+      color:#f5f5f5;
+      font-weight:bold;
     }
-    </style>
-    """, unsafe_allow_html=True)
-
+  </style>
+  """, unsafe_allow_html=True)
 
 @st.cache_data
-def img_to_base64(path):
-    with open(path, "rb") as f:
-        return base64.b64encode(f.read()).decode()
+def img_to_base64(path: str) -> str:
+  """Lit une image locale et retourne le base64 encodé. Mis en cache pour éviter re-IO."""
+  with open(path, "rb") as f:
+    return base64.b64encode(f.read()).decode()
 
-def info_box(content, style=""):
-    st.markdown(
-        f"""
-        <div class="info-box" style="{style}">
-            {content}
-        </div>
-        """,
-        unsafe_allow_html=True
-    )
 def create_skill(title, skills):
-    badges_html = "".join([f'<div class="skill-badge-inline">{skill}</div>' for skill in skills])
-    return f"""
+  badges_html = "".join([f'<div class="skill-badge-inline">{skill}</div>' for skill in skills])
+  return f"""
     <div class="info-box" style="width:100%; margin-bottom:15px;">
-        <h5>{title}</h5>
-        <div style="display:flex; flex-wrap:wrap; gap:10px;">{badges_html}</div>
+      <h5>{title}</h5>
+      <div style="display:flex; flex-wrap:wrap; gap:10px;">{badges_html}</div>
     </div>
     """
-    
-def formation_block_info(title, subtitle, years, details):
-    with st.container():
-        st.markdown(f"""
-        <div class="info-box" style="margin-bottom:10px;">
-            <h4>{title}</h4>
-            <p style="margin:0; font-size:15px;"><b>{subtitle}</b> | <i>{years}</i></p>
-        </div>
-        """, unsafe_allow_html=True)
-
-        with st.expander("🧾 En savoir plus"):
-            st.markdown(details, unsafe_allow_html=True)
-            
-def exp_block_info(title, company, place, period, tools, summary, details, logo_path=None):
-    logo_b64 = img_to_base64(logo_path) if logo_path else None
-    
-    tools_html = "".join([f'<div class="skill-badge-inline">{tool}</div>' for tool in tools])
-    
-    with st.container():
-        st.markdown(f"""
-        <div class="info-box" style="margin-bottom:10px; display:flex; align-items:center; gap:15px;">
-            {'<img src="data:image/png;base64,' + logo_b64 + '" width="100" style="border-radius:8px;">' if logo_b64 else ''}
-            <div>
-                <h4>{title} | {company} | {place}</h4>
-                <p style="margin:0; font-size:15px;"><i>{period}</i></p>
-                <p style="margin-top:8px;">{summary}</p>
-                <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:5px;">
-                    {tools_html}
-                </div>
-            </div>
-        </div>
-        """, unsafe_allow_html=True)
-        
-        with st.expander("🧾 En savoir plus"):
-            st.markdown(details, unsafe_allow_html=True)
-
-def project_block_info(title, description, tools, links, images, details_texts):
-    tools_html = "".join([f'<div class="skill-badge-inline">{tool}</div>' for tool in tools])
-    
-    if f"{title}_idx" not in st.session_state:
-        st.session_state[f"{title}_idx"] = 0
-
-    def prev_image():
-        st.session_state[f"{title}_idx"] = (st.session_state[f"{title}_idx"] - 1) % len(images)
-
-    def next_image():
-        st.session_state[f"{title}_idx"] = (st.session_state[f"{title}_idx"] + 1) % len(images)
-
-    idx = st.session_state[f"{title}_idx"]
-
-    # Génération des liens
-    links_html = ""
-    if links:
-        for link in links:
-            links_html += f'<a href="{link["url"]}" target="_blank" style="color:#f5f5f5; margin-right:15px;">🔗 {link["name"]}</a>'
-
-    with st.container():
-        # Bloc principal full width
-        st.markdown(f"""
-        <div class="info-box" style="margin-bottom:10px; width:100%; max-width:1200px; margin-left:auto; margin-right:auto;">
-            <h4>{title}</h4>
-            <p style="margin:0; font-size:15px;">{description}</p>
-            <div style="display:flex; flex-wrap:wrap; gap:6px; margin-top:5px;">
-                {tools_html}
-            </div>
-            <p style="margin-top:5px;">{links_html}</p>
-        </div>
-        """, unsafe_allow_html=True)
-
-        # Expander pour détails
-        with st.expander("🧾 En savoir plus"):
-            st.image(images[idx], width="stretch")
-
-            # Texte avec chevrons à gauche et droite
-            col_left, col_text, col_right = st.columns([1, 9, 1])
-            with col_left:
-                st.button("❮", key=f"prev_{title}", on_click=prev_image, use_container_width=True)
-            with col_text:
-                st.markdown(f'<p style="font-size:13px; margin-top:8px;">{details_texts[idx]}</p>', unsafe_allow_html=True)
-            with col_right:
-                st.button("❯", key=f"next_{title}", on_click=next_image, use_container_width=True)
