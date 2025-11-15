@@ -1,13 +1,11 @@
-import streamlit as st
-from utils.style import load_css, img_to_base64
+from utils.setup import setup_page, st
+from utils.style import  img_to_base64
 
-st.set_page_config(page_title="À propos de moi", layout="wide")
-load_css()
+setup_page("✨ À propos de moi")
 
 haku_b64 = img_to_base64("assets/ghibli/haku.png")
 instagram_b64 = img_to_base64("assets/logo/instagram.png")
 
-st.title("✨ À propos de moi")
 st.markdown("""
 <p style="text-align:center; font-size:16px;">
 Découvrez un aperçu de mes passions et de mon univers personnel.

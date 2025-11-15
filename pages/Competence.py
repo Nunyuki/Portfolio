@@ -1,13 +1,9 @@
-import streamlit as st
-from utils.style import load_css, img_to_base64, create_skill
+from utils.setup import setup_page, st
+from utils.style import img_to_base64, create_skill
 
-st.set_page_config(page_title="Mes Compétences", layout="wide")
-load_css()
+setup_page("🛠 Mes Compétences")
 
 calcifer_b64   = img_to_base64("assets/ghibli/calcifer.png")
-
-st.title("🛠 Mes Compétences")
-
 col1, col2 = st.columns(2)
 
 blocks = [

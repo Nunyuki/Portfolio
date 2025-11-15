@@ -60,10 +60,20 @@ def load_css():
     """, unsafe_allow_html=True)
 
 
+@st.cache_data
 def img_to_base64(path):
     with open(path, "rb") as f:
         return base64.b64encode(f.read()).decode()
 
+def info_box(content, style=""):
+    st.markdown(
+        f"""
+        <div class="info-box" style="{style}">
+            {content}
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
 def create_skill(title, skills):
     badges_html = "".join([f'<div class="skill-badge-inline">{skill}</div>' for skill in skills])
     return f"""
@@ -143,7 +153,7 @@ def project_block_info(title, description, tools, links, images, details_texts):
 
         # Expander pour détails
         with st.expander("🧾 En savoir plus"):
-            st.image(images[idx], width=1000)  # image au-dessus
+            st.image(images[idx], width="stretch")
 
             # Texte avec chevrons à gauche et droite
             col_left, col_text, col_right = st.columns([1, 9, 1])

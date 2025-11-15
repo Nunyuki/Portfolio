@@ -1,19 +1,18 @@
-import streamlit as st
-from utils.style import load_css, img_to_base64, project_block_info
-from utils.projets import projets  # On créera ce fichier JSON-like
+from utils.setup import setup_page, st
+from utils.style import img_to_base64, project_block_info
+from utils.projets import get_projets 
 
-st.set_page_config(page_title="Mes Projets", layout="wide")
-load_css()
+setup_page("💻 Mes Projets")
 
 moro_b64 = img_to_base64("assets/ghibli/moro.png")
-
-st.title("💻 Mes Projets")
 
 st.markdown("""
 <p style="text-align:center; font-size:16px;">
 Découvrez mes projets réalisés en cours et en autonomie, avec les technologies utilisées et les liens vers le code.
 </p>
 """, unsafe_allow_html=True)
+
+projets = get_projets()
 
 col1, col2 = st.columns(2)
 for i, proj in enumerate(projets):

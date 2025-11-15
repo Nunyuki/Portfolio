@@ -1,14 +1,11 @@
-import streamlit as st
-from utils.style import load_css, img_to_base64
 
-st.set_page_config(page_title="Mes Contacts", layout="wide")
-load_css()
+from utils.setup import setup_page, st
+from utils.style import img_to_base64
 
+setup_page("📞 Contactez-moi")
 linkedin_b64 = img_to_base64("assets/logo/linkedin.png")
 github_b64   = img_to_base64("assets/logo/github.png")
 totoro_b64   = img_to_base64("assets/ghibli/totoro.png")
-
-st.title("📞 Contactez-moi")
 
 st.markdown(f"""
 <div class="info-box" style="margin:auto; width:65%;">
