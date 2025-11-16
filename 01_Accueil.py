@@ -1,6 +1,5 @@
 import streamlit as st
 from utils.setup import setup_page
-from utils.style import load_css, img_to_base64
 from utils.images import SUIE
 
 setup_page("🚀 Coucou, je suis Elodie DAI !")

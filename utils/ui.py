@@ -16,6 +16,40 @@ def mascot_row(img_b64: str, text: str, size: int = 100):
     </div>
   """, unsafe_allow_html=True)
 
+def formation_block_info(title, subtitle, years, details):
+    with st.container():
+        st.markdown(f"""
+        <div class="info-box" style="margin-bottom:10px;">
+            <h4>{title}</h4>
+            <p style="margin:0; font-size:15px;"><b>{subtitle}</b> | <i>{years}</i></p>
+        </div>
+        """, unsafe_allow_html=True)
+
+        with st.expander("🧾 En savoir plus"):
+            st.markdown(details, unsafe_allow_html=True)
+
+def exp_block_info(title, company, place, period, tools, summary, details, logo_path=None):
+    logo_b64 = img_to_base64(logo_path) if logo_path else None
+    
+    tools_html = "".join([f'<div class="skill-badge-inline">{tool}</div>' for tool in tools])
+    
+    with st.container():
+        st.markdown(f"""
+        <div class="info-box" style="margin-bottom:10px; display:flex; align-items:center; gap:15px;">
+            {'<img src="data:image/png;base64,' + logo_b64 + '" width="100" style="border-radius:8px;">' if logo_b64 else ''}
+            <div>
+                <h4>{title} | {company} | {place}</h4>
+                <p style="margin:0; font-size:15px;"><i>{period}</i></p>
+                <p style="margin-top:8px;">{summary}</p>
+                <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:5px;">
+                    {tools_html}
+                </div>
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
+        
+        with st.expander("🧾 En savoir plus"):
+            st.markdown(details, unsafe_allow_html=True)
 
 # Slider / slideshow générique (utilise session_state)
 def project_block_info(title, description, tools, links, images, details_texts):
