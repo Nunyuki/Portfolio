@@ -8,7 +8,7 @@ setup_page("💻 Mes Projets")
 
 st.markdown("""
 <p style="text-align:center; font-size:16px;">
-Découvrez mes projets réalisés en cours et en autonomie, avec les technologies utilisées et les liens vers le code.
+Découvrez mes projets réalisés en cours avec les technologies utilisées et les liens vers le code.
 </p>
 """, unsafe_allow_html=True)
 
