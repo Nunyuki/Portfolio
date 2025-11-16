@@ -50,7 +50,7 @@ with col3:
     <div class="info-box">
         <h4>🎵 Divertissement</h4>
         <h6>Rire, s’émerveiller et se divertir sont essentiels pour garder l’esprit créatif.</h6>
-        <p>Animé, Manga, Musique,  Jeux de rythme, Cinéma</p>
+        <p>Animé, Manga, Musique, Jeux de rythme, Cinéma</p>
     </div>
     """, unsafe_allow_html=True)
     
