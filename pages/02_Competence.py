@@ -11,8 +11,8 @@ blocks = [
     ("🛠 Frameworks & Outils", ["Angular", "Spring Boot", "Figma", "Unity", "Google Cloud Platform", "Swagger", "Microservice", "Streamlit", "DevOps"]),
     ("⚡ Big Data & Streaming", ["Kafka", "Spark", "Hadoop"]),
     ("🛠 IDE & Outils", ["IntelliJ IDEA", "VSCode", "PyCHARM", "Eclipse", "GitHub", "VS2022", "BlueJ"]),
-    ("🗂 Structure de données & Algorithmes", ["Liste doublement chaînée", "Table de Hashage", "Arbre", "Graphe", "Schéma E/A", "Modèle relationnel", "Calcul relationnel", "Algèbre relationnelle","SQL"]),
     ("💻 Systèmes d'exploitation", ["Windows", "Ubuntu"]),
+    ("🗂 Structure de données & Algorithmes", ["Liste doublement chaînée", "Table de Hashage", "Arbre", "Graphe", "Schéma E/A", "Modèle relationnel", "Calcul relationnel", "Algèbre relationnelle","SQL"]),
     ("💡 Soft Skills", ["Assidue", "Travail en équipe", "Adaptabilité", "Créativité", "Gestion du temps"])
 ]
 
