@@ -7,14 +7,22 @@ from datetime import datetime
 
 FILE = "views.json"
 
-# Si fichier n'existe pas, on le crée
+# Si le fichier n'existe pas, on le crée
 if not os.path.exists(FILE):
     with open(FILE, "w") as f:
-        json.dump({"date": "1970-01-01", "count": 0}, f)
+        json.dump({"date": datetime.now().strftime("%Y-%m-%d"), "count": 0}, f)
 
-# Lecture
+# Lecture du fichier
 with open(FILE, "r") as f:
-    data = json.load(f)
+    try:
+        data = json.load(f)
+    except json.JSONDecodeError:
+        # si le fichier est vide ou corrompu
+        data = {"date": datetime.now().strftime("%Y-%m-%d"), "count": 0}
+
+# S'assurer que les clés existent
+if "date" not in data or "count" not in data:
+    data = {"date": datetime.now().strftime("%Y-%m-%d"), "count": 0}
 
 today = datetime.now().strftime("%Y-%m-%d")
 
@@ -29,6 +37,7 @@ data["count"] += 1
 # Sauvegarde
 with open(FILE, "w") as f:
     json.dump(data, f)
+
 
 
 setup_page("🚀 Coucou, je suis Elodie DAI !")
