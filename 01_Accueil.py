@@ -1,42 +1,35 @@
 import streamlit as st
 from utils.setup import setup_page
 from utils.images import SUIE
-import streamlit as st
-import gspread
-from oauth2client.service_account import ServiceAccountCredentials
+import json
+import os
 from datetime import datetime
-import matplotlib.pyplot as plt
 
-# --- MODE ADMIN (optionnel) ---
-query_params = st.query_params
-is_admin = query_params.get("admin") == "1"
+FILE = "views.json"
 
-# --- Connexion à Google Sheets ---
-scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
-creds = ServiceAccountCredentials.from_json_keyfile_name("service_account.json", scope)
-client = gspread.authorize(creds)
+# Si fichier n'existe pas, on le crée
+if not os.path.exists(FILE):
+    with open(FILE, "w") as f:
+        json.dump({"date": "1970-01-01", "count": 0}, f)
 
-sheet = client.open("stats").sheet1
-
-# --- Lecture de la première ligne ---
-saved_date = sheet.cell(1, 1).value
-saved_count = int(sheet.cell(1, 2).value)
+# Lecture
+with open(FILE, "r") as f:
+    data = json.load(f)
 
 today = datetime.now().strftime("%Y-%m-%d")
 
-# --- Mise à jour du compteur ---
-if saved_date != today:
-    sheet.update("A1", today)
-    sheet.update("B1", 1)
-    count = 1
-else:
-    count = saved_count + 1
-    sheet.update("B1", count)
+# Reset si changement de jour
+if data["date"] != today:
+    data["date"] = today
+    data["count"] = 0
 
-# --- Enregistrer dans l'historique ---
-rows = sheet.get_all_records()
-dates = [r["date"] for r in rows]
-counts = [int(r["count"]) for r in rows]
+# Incrémentation
+data["count"] += 1
+
+# Sauvegarde
+with open(FILE, "w") as f:
+    json.dump(data, f)
+
 
 setup_page("🚀 Coucou, je suis Elodie DAI !")
 st.subheader("Développement le jour, créativité toujours. J’aime construire mes projets avec la même attention que je mets dans mes créations personnelles.")
