@@ -1,44 +1,6 @@
 import streamlit as st
 from utils.setup import setup_page
 from utils.images import SUIE
-import json
-import os
-from datetime import datetime
-
-FILE = "views.json"
-
-# Si le fichier n'existe pas, on le crée
-if not os.path.exists(FILE):
-    with open(FILE, "w") as f:
-        json.dump({"date": datetime.now().strftime("%Y-%m-%d"), "count": 0}, f)
-
-# Lecture du fichier
-with open(FILE, "r") as f:
-    try:
-        data = json.load(f)
-    except json.JSONDecodeError:
-        # si le fichier est vide ou corrompu
-        data = {"date": datetime.now().strftime("%Y-%m-%d"), "count": 0}
-
-# S'assurer que les clés existent
-if "date" not in data or "count" not in data:
-    data = {"date": datetime.now().strftime("%Y-%m-%d"), "count": 0}
-
-today = datetime.now().strftime("%Y-%m-%d")
-
-# Reset si changement de jour
-if data["date"] != today:
-    data["date"] = today
-    data["count"] = 0
-
-# Incrémentation
-data["count"] += 1
-
-# Sauvegarde
-with open(FILE, "w") as f:
-    json.dump(data, f)
-
-
 
 setup_page("🚀 Coucou, je suis Elodie DAI !")
 st.subheader("Développement le jour, créativité toujours. J’aime construire mes projets avec la même attention que je mets dans mes créations personnelles.")
